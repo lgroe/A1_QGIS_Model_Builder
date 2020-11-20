@@ -1,0 +1,24 @@
+-- What is the Topography Wetness Index? 
+The Topographic Wetness Index (TWI) is a hydrological model which allows to assess the distribution of areas prone to flash floods.
+The TWI is calculated using two parameters: a catchment area and slope, which can both be derived from a DEM.
+Slope is an important parameter for the index as it determines flow direction and accumulation of water. 
+There are different variations with modifications to the original steady-state TWI, which for instance take soil transmissivity into account or modified how the slope is calculated. 
+Reference: Pourali, S. H., Arrowsmith, C., Chrisman, N., Matkan, A. A., & Mitchell, D. (2016). Topography wetness index application in flood-risk-based land use planning. Applied Spatial Analysis and Policy, 9(1), 39-54.
+
+-- How are the TWI values related to the flood probability?
+High values indicate a high probability to flash-floods, low values a lower probability.
+Thresholds can be set to classify the TWI raster and to determine if an area is flood prone or not.
+
+
+-- Tool within QGIS Processing Toolbox: 
+- Topographic Wetness Index (TIW) by SAGA. This tool requires two input rasters, which have to be obtained from a DEM: one raster with the catchment area and one with slope.
+- r.topidx by GRASS
+
+--Other FOSSGIS Tools: 
+	- R: 
+		- dynatopmodel package, which has the function upslope.area()
+		  Metcalfe, P. et al. “Dynamic TOPMODEL: A new implementation in R and its sensitivity to time and space steps.” Environ. Model. Softw. 72 (2015): 155-172.
+		- envirem package, with the function topoWetnessIndex(). This function also uses SAGA 
+		  Title P, Bemmels J (2018). “ENVIREM: An expanded set of bioclimatic and topographic variables increases flexibility and improves performance of ecological niche modeling.” Ecography, 41, 291-307.
+	- Python
+		- pydem package - it can be used both from the command line or via its python API https://pypi.org/project/pyDEM/0.1.1/
